@@ -1,0 +1,9 @@
+# download/build artifacts (not source)
+rezona-football.zip
+*.zip
+
+# node / vite
+node_modules/
+dist/
+.vite/
+*.local
