@@ -4072,5 +4072,178 @@ void main() {
 <button id="tutSkipBtn">SKIP ▶▶</button>
 </div><!-- /#rotor -->
 
+<!-- ===== MODO FIGURITAS ===== -->
+<div id="figModal">
+
+  <!-- HOME -->
+  <div class="scr show" id="home">
+    <div class="gotybg" aria-hidden="true">
+      <div class="gbgrad"></div>
+      <div class="orb" style="width:170px;height:170px;left:6%;top:14%;background:radial-gradient(circle at 38% 34%,#fff,#ff7a20 56%,transparent 72%);animation-delay:0s,0s"></div>
+      <div class="orb" style="width:130px;height:130px;right:8%;top:22%;background:radial-gradient(circle at 38% 34%,#fff,#ffd24a 56%,transparent 72%);animation-delay:1.6s,2s"></div>
+      <div class="orb" style="width:200px;height:200px;left:-4%;bottom:10%;background:radial-gradient(circle at 38% 34%,#fff,#5ad1ff 54%,transparent 72%);animation-delay:3.2s,1s"></div>
+      <div class="orb" style="width:150px;height:150px;right:-2%;bottom:16%;background:radial-gradient(circle at 38% 34%,#fff,#c06bff 56%,transparent 72%);animation-delay:4.6s,3s"></div>
+      <div class="orb" style="width:110px;height:110px;left:42%;top:6%;background:radial-gradient(circle at 38% 34%,#fff,#36e0a0 56%,transparent 72%);animation-delay:2.4s,2.5s"></div>
+      <div class="gbvig"></div>
+    </div>
+    <div id="top">
+      <button class="navbtn" id="toGame">‹ JUGAR</button>
+      <span class="brand" id="figBrand">FIGURITAS</span>
+      <span class="prog" id="progHome">0 / 144</span>
+    </div>
+    <div class="center" id="homeCenter">
+      <div class="pack" id="homePack">
+        <div class="seal" id="packSeal">REZONA ★ MUNDIAL</div>
+        <div class="big"><span class="packBig">SOBRE</span><small class="packSub">MUNDIAL</small></div>
+        <div class="ball">⚽</div>
+        <div class="x3 packX3">3 FIGURITAS</div>
+      </div>
+      <div id="homePanel">
+        <div class="ttl" id="figTtl">SOBRE MUNDIAL<br>REZONA</div>
+        <div class="coinBadge" id="coinsHome">🪙 15</div>
+        <button class="bigbtn" id="btnOpen">ABRIR SOBRE</button>
+        <button class="ghostbtn" id="btnAlbum">📖 VER ÁLBUM</button>
+        <button class="ghostbtn" id="btnWheel" style="border-color:#ffcf40;color:#ffe9a8">🎰 MONEDAS GRATIS</button>
+        <div class="hint" id="packCount">Sobres abiertos: 0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPENING -->
+  <div class="scr" id="opening">
+    <div id="top">
+      <span class="brand" id="openTitle">ABRIENDO SOBRE</span>
+      <button class="navbtn" id="openExit">✕</button>
+    </div>
+    <div class="center">
+      <div id="stage"></div>
+    </div>
+    <div id="openHint">Tocá el sobre para abrirlo</div>
+    <div id="flash"></div>
+  </div>
+
+  <!-- ALBUM -->
+  <div class="scr" id="album">
+    <div class="gotybg" aria-hidden="true">
+      <div class="gbgrad" style="opacity:.32"></div>
+      <div class="orb" style="width:160px;height:160px;left:4%;top:30%;background:radial-gradient(circle at 38% 34%,#fff,#ff7a20 56%,transparent 72%);animation-delay:0s,0s"></div>
+      <div class="orb" style="width:140px;height:140px;right:2%;bottom:14%;background:radial-gradient(circle at 38% 34%,#fff,#5ad1ff 54%,transparent 72%);animation-delay:3s,2s"></div>
+      <div class="gbvig"></div>
+    </div>
+    <div id="top">
+      <button class="navbtn" id="albExit">‹ INICIO</button>
+      <span class="prog" id="progAlbum">0 / 144</span>
+    </div>
+    <div id="tabs"></div>
+    <div id="albBody">
+      <div id="grid"></div>
+      <div id="albPreview">
+        <div id="albPrevEmpty">Tocá una figurita para verla en 3D</div>
+        <div id="albPrevCard" style="display:none">
+          <img id="albPrevImg" alt="">
+          <div id="albPrevGrade"></div>
+          <div id="albPrevName"></div>
+          <div id="albPrevSub"></div>
+          <div id="albPrevStats"></div>
+          <button id="albPrevFull">VER CARTA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD VIEW -->
+  <div class="scr" id="cardView">
+    <div class="closeX" id="cardViewClose">✕</div>
+    <div id="cardViewInner"></div>
+  </div>
+
+  <!-- RULETA MONEDAS GRATIS -->
+  <div class="scr" id="wheel">
+    <div id="top">
+      <button class="navbtn" id="wheelBack">‹ VOLVER</button>
+      <span class="brand" id="wheelBrand">MONEDAS GRATIS</span>
+      <span class="prog" id="coinsWheel">🪙 0</span>
+    </div>
+    <div class="center" id="wheelCenter">
+      <div id="wheelWrap">
+        <div id="wheelPin"></div>
+        <div id="wheelDisc"></div>
+        <div id="wheelHub">🎁</div>
+      </div>
+      <div id="wheelCtrls">
+        <button class="bigbtn" id="spinBtn">GIRAR</button>
+        <button class="bigbtn" id="reSpinBtn" style="background:linear-gradient(135deg,#ffb03a,#ff7a20)">REACTIVAR · 25🪙</button>
+        <div class="hint" id="wheelTimer"></div>
+        <div class="hint" id="wheelNote" style="max-width:280px;color:#ffe9a8">1 giro gratis cada 4 h · 🎁 = premio secreto (mítico o GOAT)</div>
+      </div>
+    </div>
+    <div id="prizePop">
+      <div id="prizeInner"></div>
+      <button class="bigbtn" id="prizeOk" style="margin-top:14px">¡GENIAL!</button>
+    </div>
+  </div>
+
+  <!-- INGRESO DIARIO (30 días) -->
+  <div class="scr" id="daily">
+    <div id="top">
+      <button class="navbtn" id="dailyBack">‹ VOLVER</button>
+      <span class="brand" id="dailyBrand">INGRESO DIARIO</span>
+      <span class="prog" id="coinsDaily">🪙 0</span>
+    </div>
+    <div class="center" id="dailyCenter">
+      <div id="dailyMain">
+        <div class="hint" id="dailySub" style="color:#ffe9a8">30 días seguidos · tocá el día que brilla</div>
+        <div id="dailyGrid"></div>
+        <div class="hint" id="dailyMsg"></div>
+      </div>
+      <div id="dailyPrev"></div>
+    </div>
+  </div>
+
+  <!-- QUESTS (misiones diarias) -->
+  <div class="scr" id="quests">
+    <div id="top">
+      <button class="navbtn" id="questsBack">‹ VOLVER</button>
+      <span class="brand" id="questsBrand">MISIONES</span>
+      <span class="prog" id="coinsQuests">🪙 0</span>
+    </div>
+    <div class="center" id="questsCenter">
+      <div class="hint" id="questsSub" style="color:#7ee0a0">Misiones de hoy · se renuevan cada día</div>
+      <div id="questList"></div>
+    </div>
+  </div>
+
+  <!-- LEAGUES (ranking) -->
+  <div class="scr" id="leagues">
+    <div id="top">
+      <button class="navbtn" id="leaguesBack">‹ VOLVER</button>
+      <span class="brand" id="leaguesBrand">LIGAS</span>
+      <span class="prog" id="rpLeagues">0 RP</span>
+    </div>
+    <div class="center" id="leaguesCenter">
+      <div id="leagueBadge"></div>
+      <div id="leagueInfo">
+        <div id="leagueTier">—</div>
+        <div id="leagueBar"><div id="leagueFill"></div></div>
+        <div class="hint" id="leagueNext"></div>
+      </div>
+      <div id="leagueLadder"></div>
+      <div class="hint" id="leagueHint" style="color:#9aa0b8">Ganá partidos para subir de liga · +25 RP victoria · −12 derrota</div>
+    </div>
+  </div>
+
+  <!-- TIENDA -->
+  <div class="scr" id="store">
+    <div id="top">
+      <button class="navbtn" id="storeBack">‹ VOLVER</button>
+      <span class="brand" id="storeBrand">TIENDA</span>
+      <span class="prog" id="coinsStore">🪙 0</span>
+    </div>
+    <div class="center" id="storeCenter">
+      <div id="storeList"></div>
+      <div class="hint" id="storeMsg"></div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
