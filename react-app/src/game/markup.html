@@ -1,0 +1,420 @@
+<div id="rotor">
+<div id="loadingMsg">
+  CARGANDO...
+  <div id="loadingBar"><div id="loadingFill"></div></div>
+</div>
+
+<!-- PLAY -->
+<div id="playScreen">
+  <div class="gotybg" aria-hidden="true">
+    <div class="gbgrad"></div>
+    <div class="orb" style="width:200px;height:200px;left:4%;top:30%;background:radial-gradient(circle at 38% 34%,#fff,#ff7a20 56%,transparent 72%);animation-delay:0s,0s"></div>
+    <div class="orb" style="width:150px;height:150px;right:6%;top:24%;background:radial-gradient(circle at 38% 34%,#fff,#ffd24a 56%,transparent 72%);animation-delay:2s,1.5s"></div>
+    <div class="orb" style="width:230px;height:230px;left:-6%;bottom:6%;background:radial-gradient(circle at 38% 34%,#fff,#5ad1ff 54%,transparent 72%);animation-delay:3.6s,2.4s"></div>
+    <div class="orb" style="width:160px;height:160px;right:-4%;bottom:18%;background:radial-gradient(circle at 38% 34%,#fff,#c06bff 56%,transparent 72%);animation-delay:5s,1s"></div>
+  </div>
+  <div id="menuGlow"></div>
+  <canvas id="menuChar"></canvas>
+  <div id="fcMenu">
+    <div id="fcTop">
+      <div class="fcBrand"><img id="bigLogoImg" class="fcLogo" alt="Rezona"><span id="playTitle">REZONA FC</span></div>
+      <div class="fcRes">
+        <span class="fcCoin" id="fcCoins">🪙 0</span>
+        <button id="muteBtn">🔊</button>
+        <button id="langBtn">🌐 ES</button>
+      </div>
+    </div>
+    <div id="fcMid">
+      <div id="fcRail">
+        <div class="railTile" id="dailyTile"><div class="rIco">🎁</div><div class="rTxt">INGRESO DIARIO</div><div class="rBadge" id="dailyBadge">!</div></div>
+        <div class="railTile" id="railQuests"><div class="rIco">🎯</div><div class="rTxt">MISIONES</div></div>
+        <div class="railTile" id="railLeagues"><div class="rIco">🏆</div><div class="rTxt">LIGAS</div></div>
+        <div class="railTile" id="railStore"><div class="rIco">🏪</div><div class="rTxt">TIENDA</div></div>
+      </div>
+      <div id="fcHero"></div>
+      <div id="fcSide">
+        <button id="playBtn">▶ JUGAR</button>
+        <button id="figBtn">🎴 FIGURITAS</button>
+        <button id="railGems" class="sideMini"><span class="smIco">🎰</span><span class="smTxt">MONEDAS GRATIS</span></button>
+      </div>
+    </div>
+    <div id="gfxSetting">
+      <span class="gfxLabel">GRÁFICOS</span>
+      <div class="gfxOpts">
+        <button class="gfxOpt" data-q="alta">ALTA</button>
+        <button class="gfxOpt active" data-q="media">MEDIA</button>
+        <button class="gfxOpt" data-q="baja">BAJA</button>
+      </div>
+    </div>
+    <div id="fcNav">
+      <button class="navTab" id="navQuests"><span>🎯</span>QUESTS</button>
+      <button class="navTab" id="navLeagues"><span>🛡️</span>LEAGUES</button>
+      <button class="navTab" id="navMarket"><span>🛒</span>MARKET</button>
+      <button class="navTab" id="navStore"><span>🏪</span>STORE</button>
+      <button class="navTab" id="navDaily2"><span>🎁</span>DIARIO</button>
+    </div>
+  </div>
+  <div id="fcToast"></div>
+</div>
+
+<!-- MODE SELECT (1v1 / 2v2) -->
+<div id="modeSelect">
+  <canvas id="modeFx"></canvas>
+  <button id="modeBack">✕ CANCELAR</button>
+  <div class="modeHeader">
+    <div class="modeKicker" id="modeKicker">REZONA · FOOTBALL</div>
+    <h1 id="modeTitle">ELEGÍ EL MODO</h1>
+    <div class="modeSub" id="modeSub">Multijugador online</div>
+  </div>
+  <div class="modeCards">
+    <button class="modeCard" data-mode="1v1">
+      <div class="mcGlow"></div>
+      <div class="mcIco">🆚</div>
+      <div class="mcName">1 vs 1</div>
+      <div class="mcDesc">Mano a mano · 2 jugadores</div>
+      <div class="mcGo">JUGAR ▶</div>
+    </button>
+    <button class="modeCard" data-mode="2v2">
+      <div class="mcGlow"></div>
+      <div class="mcIco">👥</div>
+      <div class="mcName">2 vs 2</div>
+      <div class="mcDesc">En equipo · 4 jugadores</div>
+      <div class="mcGo">JUGAR ▶</div>
+    </button>
+    <button class="modeCard" data-mode="3v3">
+      <div class="mcGlow"></div>
+      <div class="mcIco">⚽</div>
+      <div class="mcName">3 vs 3</div>
+      <div class="mcDesc">Equipo completo · 6 jugadores</div>
+      <div class="mcGo">JUGAR ▶</div>
+    </button>
+  </div>
+</div>
+
+<!-- TEAM SELECT -->
+<div id="teamSelect">
+  <button id="cancelBtn">✕ CANCELAR</button>
+  <h1 id="tsTitle">ELEGÍ TU EQUIPO</h1>
+  <div class="sub" id="tsSub">8 equipos disponibles</div>
+  <div class="teams" id="teamGrid"></div>
+</div>
+
+<!-- VISOR DE JUGADORES -->
+<div id="playerViewer">
+  <button id="pvBack">‹ EQUIPOS</button>
+  <div id="pvTopName"></div>
+  <button id="pvPlay">▶ INICIAR PARTIDO</button>
+  <canvas id="pvCanvas"></canvas>
+  <button class="pvArrow" id="pvPrev">‹</button>
+  <button class="pvArrow" id="pvNext">›</button>
+  <div id="pvCard">
+    <div id="pvHead">
+      <span id="pvNum">10</span>
+      <div id="pvNameWrap">
+        <div id="pvName">CAPITÁN</div>
+        <div id="pvPos">DELANTERO</div>
+      </div>
+      <span id="pvGrade"></span>
+      <span id="pvDots"></span>
+    </div>
+    <div id="pvBars"></div>
+    <button id="pvReorder">🔄 REORDENAR</button>
+    <div id="pvHint">Arrastrá para girar · flechas para cambiar</div>
+  </div>
+  <div id="pvPicker"><div id="pvPickInner">
+    <div id="pvPickTitle">TU PLANTEL</div>
+    <div id="pvPickGrid"></div>
+    <button id="pvPickClose">✕ CERRAR</button>
+  </div></div>
+</div>
+
+<!-- COACHMARK (tutorial de una sola vez) -->
+<div id="coach"><div id="coachBox">
+  <div id="coachIcon">💡</div>
+  <div id="coachText"></div>
+  <button id="coachOk">OK</button>
+</div></div>
+
+<!-- SELECCIÓN DE IDIOMA (primer arranque, antes del tutorial) -->
+<div id="langModal"><div id="langBox">
+  <div id="langTitle">🌐 IDIOMA / LANGUAGE</div>
+  <div id="langBtns">
+    <button class="langPick" data-l="es">🇦🇷 ESPAÑOL</button>
+    <button class="langPick" data-l="en">🇬🇧 ENGLISH</button>
+  </div>
+</div></div>
+
+<!-- BUSCANDO RIVAL (matchmaking) -->
+<div id="mmScreen">
+  <button id="mmCancel">✕ CANCELAR</button>
+  <div class="mmSpinner"></div>
+  <div id="mmTitle">BUSCANDO RIVAL…</div>
+  <div id="mmInfo">Conectando al servidor</div>
+  <div id="mmPlayers"></div>
+</div>
+
+<!-- GAME -->
+<div id="gameUI">
+  <div id="cinemaBars"><div class="cbar top"></div><div class="cbar bot"></div></div>
+  <div id="halftimeText"><div class="htBig">⏱ ENTRETIEMPO</div><div class="htSub">Cambio de lado</div></div>
+  <div id="goalFlash"></div>
+  <div id="setFade"></div>
+  <button id="exitBtn">✕ SALIR</button>
+  <button id="helpBtn">?</button>
+  <button id="camBtn">📷 FIFA</button>
+  <div id="fps">– fps</div>
+  <div id="hud">
+    <span class="hudSide"><span class="hudAbbr" id="hudAbbrUs">US</span></span>
+    <span class="hudScore" id="hudScore">0 - 0</span>
+    <span class="hudSide"><span class="hudAbbr" id="hudAbbrThem">TH</span></span>
+  </div>
+  <div id="matchClock">2:00</div>
+  <div id="foulBanner"></div>
+  <div id="cardPop"></div>
+
+  <button id="devBtn">DEV</button>
+  <div id="devPanel">
+    <div class="devHead">DEV · ARCO <span id="devReadout"></span></div>
+    <div class="devRow">
+      <span class="devLbl">ARCO</span>
+      <button class="devSel on" data-sel="0">1</button>
+      <button class="devSel" data-sel="1">2</button>
+    </div>
+    <div class="devRow"><span class="devLbl">MOVER</span>
+      <button data-k="move" data-a="x" data-s="-1">X−</button><button data-k="move" data-a="x" data-s="1">X+</button>
+      <button data-k="move" data-a="y" data-s="-1">Y−</button><button data-k="move" data-a="y" data-s="1">Y+</button>
+      <button data-k="move" data-a="z" data-s="-1">Z−</button><button data-k="move" data-a="z" data-s="1">Z+</button>
+    </div>
+    <div class="devRow"><span class="devLbl">TAMAÑO</span>
+      <button data-k="size" data-a="x" data-s="-1">X−</button><button data-k="size" data-a="x" data-s="1">X+</button>
+      <button data-k="size" data-a="y" data-s="-1">Y−</button><button data-k="size" data-a="y" data-s="1">Y+</button>
+      <button data-k="size" data-a="z" data-s="-1">Z−</button><button data-k="size" data-a="z" data-s="1">Z+</button>
+    </div>
+    <div class="devRow"><span class="devLbl">CÁMARA</span>
+      <button data-cam="zoomin">ZOOM+</button><button data-cam="zoomout">ZOOM−</button>
+      <button data-cam="up">↑VISTA</button><button data-cam="down">↓VISTA</button>
+    </div>
+    <div class="devRow devBtns">
+      <button id="devCopy">COPIAR</button>
+      <button id="devReset">RESET</button>
+      <button id="devClose">CERRAR</button>
+    </div>
+  </div>
+
+  <div id="fullTime">
+    <div id="ftCard">
+      <div class="ftTitle">FIN DEL PARTIDO</div>
+      <div id="ftScore" class="ftScore">0 - 0</div>
+      <div id="ftResult" class="ftResult"></div>
+      <div class="ftBtns">
+        <button id="ftReplay">↻ JUGAR DE NUEVO</button>
+        <button id="ftExit">✕ SALIR</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="joystick"><div id="joystickKnob"></div></div>
+  
+  <div class="actionBtns">
+    <button class="actBtn kick" id="btnKick">PATEAR</button>
+    <button class="actBtn pass" id="btnPass">PASE</button>
+    <button class="actBtn sprint" id="btnSprint">SPRINT</button>
+  </div>
+</div>
+
+<!-- TUTORIAL -->
+<div id="tutorial">
+  <div id="tutDim"></div>
+  <div id="tutRing"></div>
+  <div id="tutCard">
+    <div id="tutStep">PASO 1 / 4</div>
+    <div id="tutTitle">Moverte</div>
+    <div id="tutDesc"></div>
+    <button id="tutBtn">SIGUIENTE →</button>
+    <button id="tutSkip">SALTAR TUTORIAL</button>
+  </div>
+</div>
+<div id="coachWrap">
+  <div id="coachAvatar"><canvas id="coachCanvas" width="200" height="200"></canvas></div>
+  <div id="coachBubble">
+    <div id="coachName">COACH</div>
+    <div id="coachTalk">…</div>
+    <button id="coachNext">OK ▶</button>
+  </div>
+</div>
+<button id="tutSkipBtn">SKIP ▶▶</button>
+</div><!-- /#rotor -->
+
+<!-- ===== MODO FIGURITAS ===== -->
+<div id="figModal">
+
+  <!-- HOME -->
+  <div class="scr show" id="home">
+    <div class="gotybg" aria-hidden="true">
+      <div class="gbgrad"></div>
+      <div class="orb" style="width:170px;height:170px;left:6%;top:14%;background:radial-gradient(circle at 38% 34%,#fff,#ff7a20 56%,transparent 72%);animation-delay:0s,0s"></div>
+      <div class="orb" style="width:130px;height:130px;right:8%;top:22%;background:radial-gradient(circle at 38% 34%,#fff,#ffd24a 56%,transparent 72%);animation-delay:1.6s,2s"></div>
+      <div class="orb" style="width:200px;height:200px;left:-4%;bottom:10%;background:radial-gradient(circle at 38% 34%,#fff,#5ad1ff 54%,transparent 72%);animation-delay:3.2s,1s"></div>
+      <div class="orb" style="width:150px;height:150px;right:-2%;bottom:16%;background:radial-gradient(circle at 38% 34%,#fff,#c06bff 56%,transparent 72%);animation-delay:4.6s,3s"></div>
+      <div class="orb" style="width:110px;height:110px;left:42%;top:6%;background:radial-gradient(circle at 38% 34%,#fff,#36e0a0 56%,transparent 72%);animation-delay:2.4s,2.5s"></div>
+      <div class="gbvig"></div>
+    </div>
+    <div id="top">
+      <button class="navbtn" id="toGame">‹ JUGAR</button>
+      <span class="brand" id="figBrand">FIGURITAS</span>
+      <span class="prog" id="progHome">0 / 144</span>
+    </div>
+    <div class="center" id="homeCenter">
+      <div class="pack" id="homePack">
+        <div class="seal" id="packSeal">REZONA ★ MUNDIAL</div>
+        <div class="big"><span class="packBig">SOBRE</span><small class="packSub">MUNDIAL</small></div>
+        <div class="ball">⚽</div>
+        <div class="x3 packX3">3 FIGURITAS</div>
+      </div>
+      <div id="homePanel">
+        <div class="ttl" id="figTtl">SOBRE MUNDIAL<br>REZONA</div>
+        <div class="coinBadge" id="coinsHome">🪙 15</div>
+        <button class="bigbtn" id="btnOpen">ABRIR SOBRE</button>
+        <button class="ghostbtn" id="btnAlbum">📖 VER ÁLBUM</button>
+        <button class="ghostbtn" id="btnWheel" style="border-color:#ffcf40;color:#ffe9a8">🎰 MONEDAS GRATIS</button>
+        <div class="hint" id="packCount">Sobres abiertos: 0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPENING -->
+  <div class="scr" id="opening">
+    <div id="top">
+      <span class="brand" id="openTitle">ABRIENDO SOBRE</span>
+      <button class="navbtn" id="openExit">✕</button>
+    </div>
+    <div class="center">
+      <div id="stage"></div>
+    </div>
+    <div id="openHint">Tocá el sobre para abrirlo</div>
+    <div id="flash"></div>
+  </div>
+
+  <!-- ALBUM -->
+  <div class="scr" id="album">
+    <div class="gotybg" aria-hidden="true">
+      <div class="gbgrad" style="opacity:.32"></div>
+      <div class="orb" style="width:160px;height:160px;left:4%;top:30%;background:radial-gradient(circle at 38% 34%,#fff,#ff7a20 56%,transparent 72%);animation-delay:0s,0s"></div>
+      <div class="orb" style="width:140px;height:140px;right:2%;bottom:14%;background:radial-gradient(circle at 38% 34%,#fff,#5ad1ff 54%,transparent 72%);animation-delay:3s,2s"></div>
+      <div class="gbvig"></div>
+    </div>
+    <div id="top">
+      <button class="navbtn" id="albExit">‹ INICIO</button>
+      <span class="prog" id="progAlbum">0 / 144</span>
+    </div>
+    <div id="tabs"></div>
+    <div id="albBody">
+      <div id="grid"></div>
+      <div id="albPreview">
+        <div id="albPrevEmpty">Tocá una figurita para verla en 3D</div>
+        <div id="albPrevCard" style="display:none">
+          <img id="albPrevImg" alt="">
+          <div id="albPrevGrade"></div>
+          <div id="albPrevName"></div>
+          <div id="albPrevSub"></div>
+          <div id="albPrevStats"></div>
+          <button id="albPrevFull">VER CARTA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD VIEW -->
+  <div class="scr" id="cardView">
+    <div class="closeX" id="cardViewClose">✕</div>
+    <div id="cardViewInner"></div>
+  </div>
+
+  <!-- RULETA MONEDAS GRATIS -->
+  <div class="scr" id="wheel">
+    <div id="top">
+      <button class="navbtn" id="wheelBack">‹ VOLVER</button>
+      <span class="brand" id="wheelBrand">MONEDAS GRATIS</span>
+      <span class="prog" id="coinsWheel">🪙 0</span>
+    </div>
+    <div class="center" id="wheelCenter">
+      <div id="wheelWrap">
+        <div id="wheelPin"></div>
+        <div id="wheelDisc"></div>
+        <div id="wheelHub">🎁</div>
+      </div>
+      <div id="wheelCtrls">
+        <button class="bigbtn" id="spinBtn">GIRAR</button>
+        <button class="bigbtn" id="reSpinBtn" style="background:linear-gradient(135deg,#ffb03a,#ff7a20)">REACTIVAR · 25🪙</button>
+        <div class="hint" id="wheelTimer"></div>
+        <div class="hint" id="wheelNote" style="max-width:280px;color:#ffe9a8">1 giro gratis cada 4 h · 🎁 = premio secreto (mítico o GOAT)</div>
+      </div>
+    </div>
+    <div id="prizePop">
+      <div id="prizeInner"></div>
+      <button class="bigbtn" id="prizeOk" style="margin-top:14px">¡GENIAL!</button>
+    </div>
+  </div>
+
+  <!-- INGRESO DIARIO (30 días) -->
+  <div class="scr" id="daily">
+    <div id="top">
+      <button class="navbtn" id="dailyBack">‹ VOLVER</button>
+      <span class="brand" id="dailyBrand">INGRESO DIARIO</span>
+      <span class="prog" id="coinsDaily">🪙 0</span>
+    </div>
+    <div class="center" id="dailyCenter">
+      <div id="dailyMain">
+        <div class="hint" id="dailySub" style="color:#ffe9a8">30 días seguidos · tocá el día que brilla</div>
+        <div id="dailyGrid"></div>
+        <div class="hint" id="dailyMsg"></div>
+      </div>
+      <div id="dailyPrev"></div>
+    </div>
+  </div>
+
+  <!-- QUESTS (misiones diarias) -->
+  <div class="scr" id="quests">
+    <div id="top">
+      <button class="navbtn" id="questsBack">‹ VOLVER</button>
+      <span class="brand" id="questsBrand">MISIONES</span>
+      <span class="prog" id="coinsQuests">🪙 0</span>
+    </div>
+    <div class="center" id="questsCenter">
+      <div class="hint" id="questsSub" style="color:#7ee0a0">Misiones de hoy · se renuevan cada día</div>
+      <div id="questList"></div>
+    </div>
+  </div>
+
+  <!-- LEAGUES (ranking) -->
+  <div class="scr" id="leagues">
+    <div id="top">
+      <button class="navbtn" id="leaguesBack">‹ VOLVER</button>
+      <span class="brand" id="leaguesBrand">LIGAS</span>
+      <span class="prog" id="rpLeagues">0 RP</span>
+    </div>
+    <div class="center" id="leaguesCenter">
+      <div id="leagueBadge"></div>
+      <div id="leagueInfo">
+        <div id="leagueTier">—</div>
+        <div id="leagueBar"><div id="leagueFill"></div></div>
+        <div class="hint" id="leagueNext"></div>
+      </div>
+      <div id="leagueLadder"></div>
+      <div class="hint" id="leagueHint" style="color:#9aa0b8">Ganá partidos para subir de liga · +25 RP victoria · −12 derrota</div>
+    </div>
+  </div>
+
+  <!-- TIENDA -->
+  <div class="scr" id="store">
+    <div id="top">
+      <button class="navbtn" id="storeBack">‹ VOLVER</button>
+      <span class="brand" id="storeBrand">TIENDA</span>
+      <span class="prog" id="coinsStore">🪙 0</span>
+    </div>
+    <div class="center" id="storeCenter">
+      <div id="storeList"></div>
+      <div class="hint" id="storeMsg"></div>
+    </div>
+  </div>
+</div>
