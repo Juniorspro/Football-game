@@ -1,0 +1,246 @@
+<div id="rotor">
+<div id="loadingMsg">
+  CARGANDO...
+  <div id="loadingBar"><div id="loadingFill"></div></div>
+</div>
+
+<!-- PLAY -->
+<div id="playScreen">
+  <div class="gotybg" aria-hidden="true">
+    <div class="gbgrad"></div>
+    <div class="orb" style="width:200px;height:200px;left:4%;top:30%;background:radial-gradient(circle at 38% 34%,#fff,#ff7a20 56%,transparent 72%);animation-delay:0s,0s"></div>
+    <div class="orb" style="width:150px;height:150px;right:6%;top:24%;background:radial-gradient(circle at 38% 34%,#fff,#ffd24a 56%,transparent 72%);animation-delay:2s,1.5s"></div>
+    <div class="orb" style="width:230px;height:230px;left:-6%;bottom:6%;background:radial-gradient(circle at 38% 34%,#fff,#5ad1ff 54%,transparent 72%);animation-delay:3.6s,2.4s"></div>
+    <div class="orb" style="width:160px;height:160px;right:-4%;bottom:18%;background:radial-gradient(circle at 38% 34%,#fff,#c06bff 56%,transparent 72%);animation-delay:5s,1s"></div>
+  </div>
+  <div id="menuGlow"></div>
+  <canvas id="menuChar"></canvas>
+  <div id="fcMenu">
+    <div id="fcTop">
+      <div class="fcBrand"><img id="bigLogoImg" class="fcLogo" alt="Rezona"><span id="playTitle">REZONA FC</span></div>
+      <div class="fcRes">
+        <span class="fcCoin" id="fcCoins">🪙 0</span>
+        <button id="muteBtn">🔊</button>
+        <button id="langBtn">🌐 ES</button>
+      </div>
+    </div>
+    <div id="fcMid">
+      <div id="fcRail">
+        <div class="railTile" id="dailyTile"><div class="rIco">🎁</div><div class="rTxt">INGRESO DIARIO</div><div class="rBadge" id="dailyBadge">!</div></div>
+        <div class="railTile" id="railQuests"><div class="rIco">🎯</div><div class="rTxt">MISIONES</div></div>
+        <div class="railTile" id="railLeagues"><div class="rIco">🏆</div><div class="rTxt">LIGAS</div></div>
+        <div class="railTile" id="railStore"><div class="rIco">🏪</div><div class="rTxt">TIENDA</div></div>
+      </div>
+      <div id="fcHero"></div>
+      <div id="fcSide">
+        <button id="playBtn">▶ JUGAR</button>
+        <button id="figBtn">🎴 FIGURITAS</button>
+        <button id="railGems" class="sideMini"><span class="smIco">🎰</span><span class="smTxt">MONEDAS GRATIS</span></button>
+      </div>
+    </div>
+    <div id="gfxSetting">
+      <span class="gfxLabel">GRÁFICOS</span>
+      <div class="gfxOpts">
+        <button class="gfxOpt" data-q="alta">ALTA</button>
+        <button class="gfxOpt active" data-q="media">MEDIA</button>
+        <button class="gfxOpt" data-q="baja">BAJA</button>
+      </div>
+    </div>
+    <div id="fcNav">
+      <button class="navTab" id="navQuests"><span>🎯</span>QUESTS</button>
+      <button class="navTab" id="navLeagues"><span>🛡️</span>LEAGUES</button>
+      <button class="navTab" id="navMarket"><span>🛒</span>MARKET</button>
+      <button class="navTab" id="navStore"><span>🏪</span>STORE</button>
+      <button class="navTab" id="navDaily2"><span>🎁</span>DIARIO</button>
+    </div>
+  </div>
+  <div id="fcToast"></div>
+</div>
+
+<!-- MODE SELECT (1v1 / 2v2) -->
+<div id="modeSelect">
+  <canvas id="modeFx"></canvas>
+  <button id="modeBack">✕ CANCELAR</button>
+  <div class="modeHeader">
+    <div class="modeKicker" id="modeKicker">REZONA · FOOTBALL</div>
+    <h1 id="modeTitle">ELEGÍ EL MODO</h1>
+    <div class="modeSub" id="modeSub">Multijugador online</div>
+  </div>
+  <div class="modeCards">
+    <button class="modeCard" data-mode="1v1">
+      <div class="mcGlow"></div>
+      <div class="mcIco">🆚</div>
+      <div class="mcName">1 vs 1</div>
+      <div class="mcDesc">Mano a mano · 2 jugadores</div>
+      <div class="mcGo">JUGAR ▶</div>
+    </button>
+    <button class="modeCard" data-mode="2v2">
+      <div class="mcGlow"></div>
+      <div class="mcIco">👥</div>
+      <div class="mcName">2 vs 2</div>
+      <div class="mcDesc">En equipo · 4 jugadores</div>
+      <div class="mcGo">JUGAR ▶</div>
+    </button>
+    <button class="modeCard" data-mode="3v3">
+      <div class="mcGlow"></div>
+      <div class="mcIco">⚽</div>
+      <div class="mcName">3 vs 3</div>
+      <div class="mcDesc">Equipo completo · 6 jugadores</div>
+      <div class="mcGo">JUGAR ▶</div>
+    </button>
+  </div>
+</div>
+
+<!-- TEAM SELECT -->
+<div id="teamSelect">
+  <button id="cancelBtn">✕ CANCELAR</button>
+  <h1 id="tsTitle">ELEGÍ TU EQUIPO</h1>
+  <div class="sub" id="tsSub">8 equipos disponibles</div>
+  <div class="teams" id="teamGrid"></div>
+</div>
+
+<!-- VISOR DE JUGADORES -->
+<div id="playerViewer">
+  <button id="pvBack">‹ EQUIPOS</button>
+  <div id="pvTopName"></div>
+  <button id="pvPlay">▶ INICIAR PARTIDO</button>
+  <canvas id="pvCanvas"></canvas>
+  <button class="pvArrow" id="pvPrev">‹</button>
+  <button class="pvArrow" id="pvNext">›</button>
+  <div id="pvCard">
+    <div id="pvHead">
+      <span id="pvNum">10</span>
+      <div id="pvNameWrap">
+        <div id="pvName">CAPITÁN</div>
+        <div id="pvPos">DELANTERO</div>
+      </div>
+      <span id="pvGrade"></span>
+      <span id="pvDots"></span>
+    </div>
+    <div id="pvBars"></div>
+    <button id="pvReorder">🔄 REORDENAR</button>
+    <div id="pvHint">Arrastrá para girar · flechas para cambiar</div>
+  </div>
+  <div id="pvPicker"><div id="pvPickInner">
+    <div id="pvPickTitle">TU PLANTEL</div>
+    <div id="pvPickGrid"></div>
+    <button id="pvPickClose">✕ CERRAR</button>
+  </div></div>
+</div>
+
+<!-- COACHMARK (tutorial de una sola vez) -->
+<div id="coach"><div id="coachBox">
+  <div id="coachIcon">💡</div>
+  <div id="coachText"></div>
+  <button id="coachOk">OK</button>
+</div></div>
+
+<!-- SELECCIÓN DE IDIOMA (primer arranque, antes del tutorial) -->
+<div id="langModal"><div id="langBox">
+  <div id="langTitle">🌐 IDIOMA / LANGUAGE</div>
+  <div id="langBtns">
+    <button class="langPick" data-l="es">🇦🇷 ESPAÑOL</button>
+    <button class="langPick" data-l="en">🇬🇧 ENGLISH</button>
+  </div>
+</div></div>
+
+<!-- BUSCANDO RIVAL (matchmaking) -->
+<div id="mmScreen">
+  <button id="mmCancel">✕ CANCELAR</button>
+  <div class="mmSpinner"></div>
+  <div id="mmTitle">BUSCANDO RIVAL…</div>
+  <div id="mmInfo">Conectando al servidor</div>
+  <div id="mmPlayers"></div>
+</div>
+
+<!-- GAME -->
+<div id="gameUI">
+  <div id="cinemaBars"><div class="cbar top"></div><div class="cbar bot"></div></div>
+  <div id="halftimeText"><div class="htBig">⏱ ENTRETIEMPO</div><div class="htSub">Cambio de lado</div></div>
+  <div id="goalFlash"></div>
+  <div id="setFade"></div>
+  <button id="exitBtn">✕ SALIR</button>
+  <button id="helpBtn">?</button>
+  <button id="camBtn">📷 FIFA</button>
+  <div id="fps">– fps</div>
+  <div id="hud">
+    <span class="hudSide"><span class="hudAbbr" id="hudAbbrUs">US</span></span>
+    <span class="hudScore" id="hudScore">0 - 0</span>
+    <span class="hudSide"><span class="hudAbbr" id="hudAbbrThem">TH</span></span>
+  </div>
+  <div id="matchClock">2:00</div>
+  <div id="foulBanner"></div>
+  <div id="cardPop"></div>
+
+  <button id="devBtn">DEV</button>
+  <div id="devPanel">
+    <div class="devHead">DEV · ARCO <span id="devReadout"></span></div>
+    <div class="devRow">
+      <span class="devLbl">ARCO</span>
+      <button class="devSel on" data-sel="0">1</button>
+      <button class="devSel" data-sel="1">2</button>
+    </div>
+    <div class="devRow"><span class="devLbl">MOVER</span>
+      <button data-k="move" data-a="x" data-s="-1">X−</button><button data-k="move" data-a="x" data-s="1">X+</button>
+      <button data-k="move" data-a="y" data-s="-1">Y−</button><button data-k="move" data-a="y" data-s="1">Y+</button>
+      <button data-k="move" data-a="z" data-s="-1">Z−</button><button data-k="move" data-a="z" data-s="1">Z+</button>
+    </div>
+    <div class="devRow"><span class="devLbl">TAMAÑO</span>
+      <button data-k="size" data-a="x" data-s="-1">X−</button><button data-k="size" data-a="x" data-s="1">X+</button>
+      <button data-k="size" data-a="y" data-s="-1">Y−</button><button data-k="size" data-a="y" data-s="1">Y+</button>
+      <button data-k="size" data-a="z" data-s="-1">Z−</button><button data-k="size" data-a="z" data-s="1">Z+</button>
+    </div>
+    <div class="devRow"><span class="devLbl">CÁMARA</span>
+      <button data-cam="zoomin">ZOOM+</button><button data-cam="zoomout">ZOOM−</button>
+      <button data-cam="up">↑VISTA</button><button data-cam="down">↓VISTA</button>
+    </div>
+    <div class="devRow devBtns">
+      <button id="devCopy">COPIAR</button>
+      <button id="devReset">RESET</button>
+      <button id="devClose">CERRAR</button>
+    </div>
+  </div>
+
+  <div id="fullTime">
+    <div id="ftCard">
+      <div class="ftTitle">FIN DEL PARTIDO</div>
+      <div id="ftScore" class="ftScore">0 - 0</div>
+      <div id="ftResult" class="ftResult"></div>
+      <div class="ftBtns">
+        <button id="ftReplay">↻ JUGAR DE NUEVO</button>
+        <button id="ftExit">✕ SALIR</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="joystick"><div id="joystickKnob"></div></div>
+  
+  <div class="actionBtns">
+    <button class="actBtn kick" id="btnKick">PATEAR</button>
+    <button class="actBtn pass" id="btnPass">PASE</button>
+    <button class="actBtn sprint" id="btnSprint">SPRINT</button>
+  </div>
+</div>
+
+<!-- TUTORIAL -->
+<div id="tutorial">
+  <div id="tutDim"></div>
+  <div id="tutRing"></div>
+  <div id="tutCard">
+    <div id="tutStep">PASO 1 / 4</div>
+    <div id="tutTitle">Moverte</div>
+    <div id="tutDesc"></div>
+    <button id="tutBtn">SIGUIENTE →</button>
+    <button id="tutSkip">SALTAR TUTORIAL</button>
+  </div>
+</div>
+<div id="coachWrap">
+  <div id="coachAvatar"><canvas id="coachCanvas" width="200" height="200"></canvas></div>
+  <div id="coachBubble">
+    <div id="coachName">COACH</div>
+    <div id="coachTalk">…</div>
+    <button id="coachNext">OK ▶</button>
+  </div>
+</div>
+<button id="tutSkipBtn">SKIP ▶▶</button>
+</div><!-- /#rotor -->
